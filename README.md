@@ -11,3 +11,4 @@ pre-commit install --hook-type commit-msg
 ## Tests
 
 1. default configuration
+2. default configuration, `fix` commit type
