@@ -13,3 +13,4 @@ pre-commit install --hook-type commit-msg
 1. default configuration
 2. default configuration, `fix` commit type
 3. default configuration, `feat` commit type
+4. default configuration, `feat` commit type with `!` after type
