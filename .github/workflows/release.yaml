@@ -1,0 +1,35 @@
+name: Release
+
+on:
+  push:
+    branches:
+      - main
+    tags-ignore:
+      - "**"
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    name: Release
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - name: Create tag
+        uses: cocogitto/cocogitto-action@v3
+        id: tag
+        with:
+          check-latest-tag-only: true
+          release: true
+          # https://github.com/actions/checkout/pull/1184
+          git-user: "github-actions[bot]"
+          git-user-email: "41898282+github-actions[bot]@users.noreply.github.com"
+
+      - name: Generate changelog
+        run: cog changelog --at ${{ steps.tag.outputs.version }} > GITHUB_CHANGELOG.md

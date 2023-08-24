@@ -1,0 +1,6 @@
+tag_prefix = "v"
+ignore_merge_commits = true
+
+post_bump_hooks = [
+  "git push origin --tags"
+]
