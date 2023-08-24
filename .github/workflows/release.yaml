@@ -34,6 +34,7 @@ jobs:
       - name: Create tag
         uses: cocogitto/cocogitto-action@v3
         id: tag
+        if: ${{ steps.next_version.outputs.version }}
         with:
           check-latest-tag-only: true
           release: true
@@ -42,4 +43,5 @@ jobs:
           git-user-email: "41898282+github-actions[bot]@users.noreply.github.com"
 
       - name: Generate changelog
+        if: ${{ steps.next_version.outputs.version }}
         run: cog changelog --at ${{ steps.tag.outputs.version }} > GITHUB_CHANGELOG.md
