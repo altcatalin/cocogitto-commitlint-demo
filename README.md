@@ -19,3 +19,4 @@ Findings:
 
 - cocogitto failing on first commit of type `feat`
 - cocogitto it will never do an auto bump to the `1.0.0` version - see [cocogitto note](https://docs.cocogitto.io/guide/#auto-bump)
+- cocogitto existing with error when there are not valid commits to bump current version

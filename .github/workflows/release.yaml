@@ -21,6 +21,11 @@ jobs:
         with:
           fetch-depth: 0
 
+      - name: Detect next version
+        id: next_version
+        run: |
+          echo version=`cog bump --auto --dry-run` >> "$GITHUB_OUTPUT"
+
       - name: Create tag
         uses: cocogitto/cocogitto-action@v3
         id: tag
